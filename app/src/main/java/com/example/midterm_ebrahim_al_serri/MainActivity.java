@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etNumber = findViewById(R.id.etNumber);
+        etNumber = findViewById(R.id.entNumber);
         btnGenerate = findViewById(R.id.btnGenerate);
         btnHistory = findViewById(R.id.btnHistory);
         lvTable = findViewById(R.id.lvTable);
@@ -36,24 +36,20 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, tableList);
         lvTable.setAdapter(adapter);
 
-        // when clicking "Generate Table"
         btnGenerate.setOnClickListener(v -> {
-            String input = etNumber.getText().toString().trim();
-            if (input.isEmpty()) {
+            String s = etNumber.getText().toString().trim();
+            if (s.isEmpty()) {
                 Toast.makeText(this, "Please enter a number", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            int n = Integer.parseInt(input);
+            int n = Integer.parseInt(s);
             generateTable(n);
             HistoryStore.addIfNotExists(n);
         });
 
-        // when clicking "History"
         btnHistory.setOnClickListener(v ->
                 startActivity(new Intent(MainActivity.this, HistoryActivity.class)));
 
-        // delete on item click
         lvTable.setOnItemClickListener((parent, view, position, id) -> {
             String row = tableList.get(position);
             new AlertDialog.Builder(MainActivity.this)

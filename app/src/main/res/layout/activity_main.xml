@@ -13,7 +13,7 @@
         android:id="@+id/entNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter Number"
+        android:hint="Enter Number"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

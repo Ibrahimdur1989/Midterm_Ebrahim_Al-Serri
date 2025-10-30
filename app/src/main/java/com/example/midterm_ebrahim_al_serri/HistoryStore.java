@@ -1,5 +1,8 @@
 package com.example.midterm_ebrahim_al_serri;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HistoryStore {
     private static final ArrayList<Integer> numbers = new ArrayList<>();
     public static Integer lastNumber = null; // remember last generated number
